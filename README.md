@@ -36,12 +36,6 @@ permission is granted; restart the terminal if macOS requests it.
 Audio remains audible through your selected output device. Stop with Ctrl-C.
 Do not merge stderr into stdout.
 
-With Caraway installed separately:
-
-```sh
-caravay-audio | caraway live --source hye --target eng --input-format f32le -
-```
-
 Use `--help` for options and `--verbose` for timing and queue diagnostics.
 See [PROTOCOL.md](PROTOCOL.md) for the process contract.
 
