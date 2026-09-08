@@ -46,7 +46,7 @@ private final class Drain: @unchecked Sendable {
   private var data = Data()
 
   init(_ handle: FileHandle) {
-    DispatchQueue.global().async {
+    Thread.detachNewThread {
       self.data = handle.readDataToEndOfFile()
       try? handle.close()
       self.completed.signal()
