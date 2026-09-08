@@ -1,7 +1,8 @@
 # Caravay Audio
 
-Capture macOS system audio and stream it to another program. No ML model or
-virtual audio device is needed.
+A macOS command-line tool that captures system audio and streams raw PCM to
+stdout. Save recordings or pipe audio into an encoder or another application
+without a virtual audio device.
 
 Output is headerless Float32 little-endian PCM, mono, 16 kHz. Diagnostics go to
 stderr. Capture includes other applications and excludes this process's audio;
@@ -46,21 +47,20 @@ Only the Swift toolchain is required; there are no package dependencies.
 Tests require macOS 14+; the release executable still targets macOS 13+.
 With full Xcode, you can also run `swift test` directly. `make check` handles
 the framework search paths needed by standalone Command Line Tools.
-Tests launch the debug executable with
-a controlled producer and do not request recording permission. Release builds
+Tests launch the debug executable with a controlled producer and do not request recording permission. Release builds
 exclude this producer.
 
 `make dist` creates a native-architecture macOS archive and SHA-256 checksum in
 `dist/`. CI checks the code and uploads the archive as a workflow artifact.
 Archives are currently unsigned and not notarized; public release and Homebrew
-distribution are separate publishing steps. Bump the version in Makefile,
-Sources/CaravayAudio/main.swift together.
+distribution are separate publishing steps. Bump the version in `Makefile` and
+`Sources/CaravayAudio/main.swift` together.
 
 For a real capture smoke test, run capture while playing known audio, stop with
 Ctrl-C, and verify that the resulting stream contains audio and playback remains
 audible. This manual check is not covered by the controlled tests.
 
-See [ORIGIN.md](ORIGIN.md) for source provenance and [CHANGELOG.md](CHANGELOG.md).
+See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## License
 

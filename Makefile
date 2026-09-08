@@ -18,6 +18,6 @@ check:
 dist: build
 	mkdir -p dist/$(ARCHIVE)
 	install -m 755 .build/release/caravay-audio dist/$(ARCHIVE)/caravay-audio
-	cp README.md PROTOCOL.md CHANGELOG.md ORIGIN.md LICENSE dist/$(ARCHIVE)/
+	cp README.md PROTOCOL.md CHANGELOG.md LICENSE dist/$(ARCHIVE)/
 	tar -czf dist/$(ARCHIVE).tar.gz -C dist $(ARCHIVE)
 	cd dist && shasum -a 256 $(ARCHIVE).tar.gz > $(ARCHIVE).tar.gz.sha256
