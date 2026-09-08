@@ -8,6 +8,21 @@ Output is headerless Float32 little-endian PCM, mono, 16 kHz. Diagnostics go to
 stderr. Capture includes other applications and excludes this process's audio;
 it does not capture the microphone.
 
+## Use
+
+```sh
+caravay-audio > recording.f32le
+```
+
+On first capture, allow Screen & System Audio Recording in System Settings →
+Privacy & Security for the executable or its launching terminal. Retry after
+permission is granted; restart the terminal if macOS requests it.
+Audio remains audible through your selected output device. Stop with Ctrl-C.
+Do not merge stderr into stdout.
+
+Use `--help` for options and `--verbose` for timing and queue diagnostics.
+See [PROTOCOL.md](PROTOCOL.md) for the process contract.
+
 ## Install with Homebrew
 
 Requires macOS 13+ on Apple Silicon. The tap installs a prebuilt binary;
@@ -37,21 +52,6 @@ caravay-audio --version
 The default destination is `~/.local/bin`. Add that directory to your shell PATH
 permanently if needed. Override the location with `make install PREFIX=/your/prefix`.
 To remove the installation, delete that prefix's `bin/caravay-audio` file.
-
-## Use
-
-```sh
-caravay-audio > recording.f32le
-```
-
-On first capture, allow Screen & System Audio Recording in System Settings →
-Privacy & Security for the executable or its launching terminal. Retry after
-permission is granted; restart the terminal if macOS requests it.
-Audio remains audible through your selected output device. Stop with Ctrl-C.
-Do not merge stderr into stdout.
-
-Use `--help` for options and `--verbose` for timing and queue diagnostics.
-See [PROTOCOL.md](PROTOCOL.md) for the process contract.
 
 ## Development and releases
 
