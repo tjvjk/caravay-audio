@@ -70,4 +70,4 @@ See [ORIGIN.md](ORIGIN.md) for source provenance and [CHANGELOG.md](CHANGELOG.md
 
 ## License
 
-[MIT](LICENSE) — Copyright (c) 2026 Dima Miroshnichenko.
+[MIT](LICENSE).
