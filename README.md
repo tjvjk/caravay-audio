@@ -67,3 +67,7 @@ Ctrl-C, and verify that the resulting stream contains audio and playback remains
 audible. This manual check is not covered by the controlled tests.
 
 See [ORIGIN.md](ORIGIN.md) for source provenance and [CHANGELOG.md](CHANGELOG.md).
+
+## License
+
+[MIT](LICENSE) — Copyright (c) 2026 Dima Miroshnichenko.
