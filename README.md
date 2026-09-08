@@ -78,6 +78,13 @@ audible. This manual check is not covered by the controlled tests.
 
 See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
+## TODO
+
+- [ ] Add capture modes: `system`, `mic`, and `mixed`.
+- [ ] Add saving recordings to an audio file.
+- [ ] Support configurable sample rates (kHz).
+- [ ] Support mono and stereo output.
+
 ## License
 
 [MIT](LICENSE).
