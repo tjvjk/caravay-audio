@@ -8,6 +8,19 @@ Output is headerless Float32 little-endian PCM, mono, 16 kHz. Diagnostics go to
 stderr. Capture includes other applications and excludes this process's audio;
 it does not capture the microphone.
 
+## Install with Homebrew
+
+Requires macOS 13+ on Apple Silicon. The tap installs a prebuilt binary;
+no Swift toolchain is needed.
+
+```sh
+brew install tjvjk/tap/caravay-audio
+caravay-audio --version
+```
+
+To update, run `brew update` followed by `brew upgrade caravay-audio`.
+To uninstall, run `brew uninstall caravay-audio`.
+
 ## Install from source
 
 Requires macOS 13+ and Apple Command Line Tools with Swift 6.2+ to build.
@@ -52,9 +65,12 @@ exclude this producer.
 
 `make dist` creates a native-architecture macOS archive and SHA-256 checksum in
 `dist/`. CI checks the code and uploads the archive as a workflow artifact.
-Archives are currently unsigned and not notarized; public release and Homebrew
-distribution are separate publishing steps. Bump the version in `Makefile` and
-`Sources/CaravayAudio/main.swift` together.
+Public archives are attached to [GitHub Releases](https://github.com/tjvjk/caravay-audio/releases).
+The [Homebrew tap](https://github.com/tjvjk/homebrew-tap) installs the Apple Silicon
+archive. Archives are currently unsigned and not notarized.
+Bump the version in `Makefile` and `Sources/CaravayAudio/main.swift` together,
+publish the archive and checksum under the corresponding version tag, then update
+the URL, version and SHA-256 in the tap's `Formula/caravay-audio.rb`.
 
 For a real capture smoke test, run capture while playing known audio, stop with
 Ctrl-C, and verify that the resulting stream contains audio and playback remains
